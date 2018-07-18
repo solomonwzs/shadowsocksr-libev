@@ -193,7 +193,7 @@ int tls12_ticket_auth_client_encode(obfs *self, char **pencryptdata, int datalen
             param = self->server.param;
         else
             param = self->server.host;
-        strncpy(hosts, param, sizeof hosts);
+        strncpy(hosts, param, sizeof hosts - 1);
         phost[host_num++] = hosts;
         for (pos = 0; hosts[pos]; ++pos) {
             if (hosts[pos] == ',') {

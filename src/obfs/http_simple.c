@@ -94,7 +94,7 @@ int http_simple_client_encode(obfs *self, char **pencryptdata, int datalength, s
     http_simple_encode_head(local, encryptdata, head_size);
     if (self->server.param && strlen(self->server.param) == 0)
         self->server.param = NULL;
-    strncpy(hosts, self->server.param ? self->server.param : self->server.host, sizeof hosts);
+    strncpy(hosts, self->server.param ? self->server.param : self->server.host, sizeof hosts - 1);
     phost[host_num++] = hosts;
     for (pos = 0; hosts[pos]; ++pos) {
         if (hosts[pos] == ',') {
@@ -236,7 +236,7 @@ int http_post_client_encode(obfs *self, char **pencryptdata, int datalength, siz
     http_simple_encode_head(local, encryptdata, head_size);
     if (self->server.param && strlen(self->server.param) == 0)
         self->server.param = NULL;
-    strncpy(hosts, self->server.param ? self->server.param : self->server.host, sizeof hosts);
+    strncpy(hosts, self->server.param ? self->server.param : self->server.host, sizeof hosts - 1);
     phost[host_num++] = hosts;
     for (pos = 0; hosts[pos]; ++pos) {
         if (hosts[pos] == ',') {

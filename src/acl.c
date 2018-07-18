@@ -120,7 +120,7 @@ static int
 init_firewall()
 {
     int ret = 0;
-    char cli[256];
+    char cli[512];
     FILE *fp;
 
     if (getuid() != 0)
@@ -170,7 +170,7 @@ static int
 reset_firewall()
 {
     int ret = 0;
-    char cli[256];
+    char cli[512];
 
     if (getuid() != 0)
         return -1;
@@ -198,7 +198,7 @@ reset_firewall()
 static int
 set_firewall_rule(char *addr, int add)
 {
-    char cli[256];
+    char cli[512];
     struct cork_ip ip;
 
     if (getuid() != 0)
